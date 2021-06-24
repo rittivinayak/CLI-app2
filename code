@@ -1,0 +1,95 @@
+var readLineSync = require("readline-sync");
+
+//Welcome
+var userName = readLineSync.question("Hello stranger! May I know your good name ? ");
+
+console.log("A warm Welcome " + userName +" !! ");
+
+
+
+console.log("\n Here's the Quiz. \n Let's see how much you know me :) \n Hop right in !  \n \n");
+
+var score = 0;
+
+//Defining data
+var level = [[{
+  question : ">> What is  my name? ",
+  answer : "vinayak" 
+},{
+  question : ">> What do I study ? ",
+  answer : "Engineering"
+},{
+  question : ">> Where do I live? (country)  ",
+  answer :"India"
+}],[{
+  question : ">> Which is my favorite sport? ",
+  answer : "football"
+},{
+  question : ">> Which is my favorite music band? ",
+  answer : "coldplay"
+},{
+  question : ">> What is my mother tongue? ",
+  answer : "kannada"
+}]];
+
+
+
+//quiz function
+function quiz(que,ans){
+  {
+  var que_temp = readLineSync.question(que);
+
+  if (ans.toUpperCase() === que_temp.toUpperCase()){
+    console.log("Right !");
+    score = score + 1;
+  }
+  else{
+    console.log("wrong !");
+  }
+   console.log("Your current score is " + score);
+   console.log("------------------ \n");
+  }
+}
+
+//displaying questions
+for (i=0;i<level[0].length;i++){
+  for(j=0;j<level[0].length;j++)
+    var currentque = level[0][i];
+    quiz(currentque.question,currentque.answer);
+}
+
+levelOneScore = score;
+console.log("Your level I score is " + levelOneScore);
+console.log("-----------------\n")
+
+
+if (levelOneScore === 3){
+  console.log("Congrats! You are promoted to level II ");
+   {for (k=0;k<level[1].length;k++){
+     for (l=0;l<level[1].length;l++)
+      var currentque = level[1][k];
+      quiz(currentque.question,currentque.answer);
+   }
+
+      levelTwoScore = score;
+      console.log("Your final score is " + levelTwoScore);
+      console.log("Kudos! You did a geat job!")
+      console.log("-----------------\n")
+}
+}else {
+  console.log("Score minimum of 3 to qualify \n Well done. Try again ! ");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
